@@ -7,13 +7,24 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
+    @IBOutlet private weak var textField1: UITextField!
+    @IBOutlet private weak var textField2: UITextField!
+    @IBOutlet weak var label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        label.text = "0"
     }
 
-
+    @IBAction func divisionButton(_ sender: UIButton) {
+        // 入力
+        let num1 = Int(textField1.text ?? "") ?? 0
+        let num2 = Int(textField2.text ?? "") ?? 0
+        
+        // 出力
+        label.text = String(num1 / num2)
+    }
 }
 
