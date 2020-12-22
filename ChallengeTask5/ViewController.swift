@@ -8,7 +8,7 @@
 import UIKit
 
 final class ViewController: UIViewController {
-
+    
     @IBOutlet private weak var textField1: UITextField!
     @IBOutlet private weak var textField2: UITextField!
     @IBOutlet weak var label: UILabel!
@@ -17,14 +17,13 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         label.text = "0"
     }
-
+    
     @IBAction func divisionButton(_ sender: UIButton) {
-        // 入力
+        // 入力する
         let num1 = Int(textField1.text ?? "") ?? 0
         let num2 = Int(textField2.text ?? "") ?? 0
         
-        // 出力
+        // 計算結果を出力する
         label.text = String(num1 / num2)
     }
 }
-
