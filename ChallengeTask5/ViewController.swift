@@ -19,15 +19,21 @@ final class ViewController: UIViewController {
     }
     
     func alertButton() {
-        let alert1 = UIAlertController(title: "課題5", message: "割る数には0を入力しないでください", preferredStyle: .alert)
+        let alert1 = UIAlertController(title: "課題5", message: "割られる数を入力してください", preferredStyle: .alert)
         alert1.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert1, animated: true, completion: nil)
     }
     
     func alertButton2() {
-        let alert2 = UIAlertController(title: "課題5", message: "入力してください", preferredStyle: .alert)
+        let alert2 = UIAlertController(title: "課題5", message: "割る数を入力してください", preferredStyle: .alert)
         alert2.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert2, animated: true, completion: nil)
+    }
+    
+    func alertButton3() {
+        let alert3 = UIAlertController(title: "課題5", message: "割る数に0を入力しないでください", preferredStyle: .alert)
+        alert3.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alert3, animated: true, completion: nil)
     }
     
     
@@ -38,13 +44,14 @@ final class ViewController: UIViewController {
         let num2: Double! = Double(textField2.text ?? "")
         
         // nilチェック
-        if num1 == nil || num2 == nil {
-            alertButton2()
-        // 0除算チェック
-        } else if (num1 / num2).isInfinite {
+        if num1 == nil {
             alertButton()
+        } else if num2 == nil {
+            alertButton2()
+        } else if (num1 / num2).isInfinite {
+            alertButton3()
         } else {
-            label.text = String(format: "%.5f", num1 / num2)
+            label.text = String(floor(num1 / num2 * 10000)/10000)
         }
     }
 }
